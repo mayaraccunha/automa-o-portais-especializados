@@ -1,0 +1,1260 @@
+{
+  "name": "Webscraping Portais",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [
+                1
+              ],
+              "triggerAtHour": 12
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "73f49d99-b3d9-4c66-b65c-23edce14706c",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        752,
+        0
+      ],
+      "id": "0ba9d60f-e7d4-41aa-a6cb-9e3dd40a726e",
+      "name": "HTTP Request",
+      "alwaysOutputData": true,
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.nome }}",
+                    "rightValue": "Meio e Mensagem",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    },
+                    "id": "b4f801f2-71a1-4753-8ef1-4d63a35a1a2b"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Meio e Mensagem"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "19a5c90c-781f-46a8-b3da-f7042eb7e8f6",
+                    "leftValue": "={{ $json.nome }}",
+                    "rightValue": "Propmark",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Propmark"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3bf625a4-9038-4048-bb81-94dd7e7448ee",
+                    "leftValue": "={{ $json.nome }}",
+                    "rightValue": "Adnews",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Adnews"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "00c147aa-5f97-437f-9db6-a339b7ead097",
+                    "leftValue": "={{ $json.nome }}",
+                    "rightValue": "Marcas pelo mundo",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Marcas pelo mundo"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f988f1f1-0970-4809-9bb8-8c9289decaaa",
+                    "leftValue": "={{ $json.nome }}",
+                    "rightValue": "Mercado e Consumo",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Mercado e Consumo"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "6eb1008c-fcec-41e8-bef2-b612f48fc6b1",
+                    "leftValue": "={{ $json.nome }}",
+                    "rightValue": "Giro News",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Giro News"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f392e9c1-fbc6-4332-a722-6d13b6da0324",
+                    "leftValue": "={{ $json.nome }}",
+                    "rightValue": "Nosso Meio",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Nosso Meio"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "05f76255-d73d-48ed-a05f-c58d9bbc633e",
+                    "leftValue": "={{ $json.nome }}",
+                    "rightValue": "Grandes Nomes da Propaganda",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        1312,
+        -96
+      ],
+      "id": "58b38a34-2836-4a1b-9486-d1eb36021c03",
+      "name": "Switch",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "dataPropertyName": "html",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "titulo",
+              "cssSelector": "[id^=\"destaque_\"] > a > div.textos > h2, [id^=\"position_\"] > a > div.textos > h3"
+            },
+            {
+              "key": "link",
+              "cssSelector": "[id^=\"destaque_\"] > a, [id^=\"position_\"] > a",
+              "returnValue": "attribute",
+              "attribute": "href"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1600,
+        -304
+      ],
+      "id": "4012479f-9204-4bed-828d-feb462d1df48",
+      "name": "Extract Meio e Mensagem"
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "dataPropertyName": "html",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "titulo",
+              "cssSelector": "div.headline-container a > h2, div.post-container a > h2, div.col-lg-12 h2 > a"
+            },
+            {
+              "key": "link",
+              "cssSelector": "div.headline-container a, div.post-container a, div.col-lg-12 h2 > a",
+              "returnValue": "attribute",
+              "attribute": "href"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1840,
+        -208
+      ],
+      "id": "610d5fbf-1562-4d8c-a987-f42b0a8dc137",
+      "name": "Extract Propmark"
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "dataPropertyName": "html",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "titulo",
+              "cssSelector": "div.w-full.flex.flex-col.gap-\\[39px\\] > a h3"
+            },
+            {
+              "key": "link",
+              "cssSelector": "div.w-full.flex.flex-col.gap-\\[39px\\] > a",
+              "returnValue": "attribute",
+              "attribute": "href"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1824,
+        -64
+      ],
+      "id": "68148dbc-2dcd-434a-9897-f895026ab301",
+      "name": "Extract Adnews"
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "dataPropertyName": "html",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "titulo",
+              "cssSelector": ".post-item h5 > a, article.elementor-post h3 > a"
+            },
+            {
+              "key": "link",
+              "cssSelector": ".post-item h5 > a, article.elementor-post h3 > a",
+              "returnValue": "attribute",
+              "attribute": "href"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1840,
+        80
+      ],
+      "id": "984015ac-427b-4f7e-895d-b3104e884f2e",
+      "name": "Extract Marcas pelo mundo"
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "dataPropertyName": "html",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "titulo",
+              "cssSelector": "article.jeg_hero_item .jeg_post_title > a, .jeg_posts.jeg_load_more_flag article > div.jeg_postblock_content > h3 > a"
+            },
+            {
+              "key": "link",
+              "cssSelector": "article.jeg_hero_item .jeg_post_title > a, .jeg_posts.jeg_load_more_flag article > div.jeg_postblock_content > h3 > a",
+              "returnValue": "attribute",
+              "attribute": "href"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1824,
+        224
+      ],
+      "id": "e70511c2-05e9-4b24-8b57-e73eb0b67adf",
+      "name": "Extract Mercado e Consumo"
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "dataPropertyName": "html",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "titulo",
+              "cssSelector": "div.bloco__personalizado__item.titulo > h3 > a"
+            },
+            {
+              "key": "link",
+              "cssSelector": "div.bloco__personalizado__item.titulo > h3 > a",
+              "returnValue": "attribute",
+              "attribute": "href"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1808,
+        368
+      ],
+      "id": "fdade873-cd5f-47c6-9880-f0430df834e4",
+      "name": "Extract Giro News"
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "dataPropertyName": "html",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "titulo",
+              "cssSelector": "section.container.flex.flex-wrap.gap-32 > section > a.fonte-bold.fonte-cor-marketing-hover"
+            },
+            {
+              "key": "link",
+              "cssSelector": "section.container.flex.flex-wrap.gap-32 > section > a.fonte-bold.fonte-cor-marketing-hover",
+              "returnValue": "attribute",
+              "attribute": "href"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1792,
+        512
+      ],
+      "id": "15dbfb40-e9bb-487b-9a94-b758ceb39653",
+      "name": "Extract Nosso Meio"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lista de sites para fazer o scraping\nconst sites = [\n  { nome: 'Meio e Mensagem', url: 'https://www.meioemensagem.com.br/midia' },\n  { nome: 'Meio e Mensagem', url: 'https://www.meioemensagem.com.br/marketing' },\n  { nome: 'Meio e Mensagem', url: 'https://www.meioemensagem.com.br/gente' },\n  { nome: 'Meio e Mensagem', url: 'https://www.meioemensagem.com.br/comunicacao' },\n  { nome: 'Meio e Mensagem', url: 'https://www.meioemensagem.com.br/out-of-home' },\n  { nome: 'Propmark', url: 'https://propmark.com.br/ooh/' },\n  { nome: 'Propmark', url: 'https://propmark.com.br/agencias/' },\n  { nome: 'Propmark', url: 'https://propmark.com.br/anunciantes/' },\n  { nome: 'Propmark', url: 'https://propmark.com.br/mercado/' },\n  { nome: 'Marcas pelo mundo', url: 'https://www.marcaspelomundo.com.br/' },\n  { nome: 'Mercado e Consumo', url: 'https://mercadoeconsumo.com.br/retail-media' },\n  { nome: 'Mercado e Consumo', url: 'https://mercadoeconsumo.com.br/category/noticias-varejo' },\n  { nome: 'Giro News', url: 'https://www.gironews.com/' },\n  { nome: 'Grandes Nomes da Propaganda', url: 'https://grandesnomesdapropaganda.com.br/categorias/anunciantes/' },\n  { nome: 'Grandes Nomes da Propaganda', url: 'https://grandesnomesdapropaganda.com.br/categorias/agencias/' },\n  { nome: 'Grandes Nomes da Propaganda', url: 'https://grandesnomesdapropaganda.com.br/categorias/danca-das-cadeiras/' },\n  { nome: 'Grandes Nomes da Propaganda', url: 'https://grandesnomesdapropaganda.com.br/categorias/mercado/' },\n  { nome: 'Grandes Nomes da Propaganda', url: 'https://grandesnomesdapropaganda.com.br/categorias/veiculos/' },\n  { nome: 'Nosso Meio', url: 'https://nossomeio.com.br/category/marketing/campanhas/' },\n  { nome: 'Nosso Meio', url: 'https://nossomeio.com.br/category/gestao/licitacao' },\n  { nome: 'Nosso Meio', url: 'https://nossomeio.com.br/category/gestao/expansao' },\n];\n\n// Transforma cada site no formato que o n8n entende\nconst items = sites.map(site => ({\n  json: site,\n}));\n\nreturn items;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        416,
+        0
+      ],
+      "id": "bf20f7da-db8c-4ad0-abdc-74800f12c17e",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "jsCode": "/* NÓ: Map Existentes (VERSÃO FINAL STANDARD) */\n\n// Função de limpeza (IDÊNTICA ao Filtra Novas)\nfunction canonicalizeUrl(raw) {\n  try {\n    let u = raw.toString();\n    u = u.split('?')[0]; // Remove query params\n    u = u.split('#')[0]; // Remove hash\n    if (u.endsWith('/amp')) u = u.slice(0, -4);\n    let p = u.replace(/\\/+$/,''); // Remove / no final\n    return p === '' ? '/' : p;\n  } catch { return ''; }\n}\n\nconst titlesSet = new Set();\nconst linksSet = new Set();\n\nfor (const row of items) {\n  // Agora procuramos SÓ pelos nomes padronizados:\n  const tituloBruto = row.json.titulo;\n  const linkBruto   = row.json.link;\n\n  if (tituloBruto != null) titlesSet.add(tituloBruto.toString().trim());\n  if (linkBruto   != null) {\n    const canon = canonicalizeUrl(linkBruto.toString().trim());\n    if (canon) linksSet.add(canon);\n  }\n}\n\n// Ignora os cabeçalhos (agora padronizados)\ntitlesSet.delete(\"titulo\");\nlinksSet.delete(\"link\");\n\nreturn [{ json: { titles: [...titlesSet], links: [...linksSet] } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        816,
+        -304
+      ],
+      "id": "c561d139-d925-4d05-bbca-58a3d31da16b",
+      "name": "Map Existentes"
+    },
+    {
+      "parameters": {
+        "jsCode": "/*\n * NÓ: Filtra Novas (VERSÃO FINAL \"ANTI-CRASH\")\n * OBJETIVO: Não quebrar se a planilha de memória estiver vazia.\n*/\n\n// --- ETAPA 1: Carregar a \"Memória\" (Títulos e Links já vistos) ---\nlet existentes;\ntry {\n  // Tenta pegar o item. Pode ser undefined se o nó não rodou.\n  const item = $items('Map Existentes', 0, 0);\n\n  // Se o item for undefined, ou não tiver .json, joga um erro.\n  if (!item || !item.json) {\n    throw new Error(\"Memória não carregada (planilha vazia).\");\n  }\n\n  // Se passou, está seguro.\n  existentes = item.json;\n\n} catch (e) {\n  // Se qualquer coisa falhar (incluindo a planilha vazia),\n  // cria a memória vazia com segurança.\n  existentes = { titles: [], links: [] };\n}\n\n// O resto do código é idêntico...\n\nconst knownTitles = new Set((existentes.titles || []));\nconst knownLinks = new Set((existentes.links || []));\n\n// --- ETAPA 2: Função de Limpeza (IDÊNTICA ao Map Existentes) ---\nfunction normToString(v) {\n  if (v === undefined || v === null) return '';\n  if (Array.isArray(v)) {\n    const flat = v.map(x => (x ?? '').toString().trim()).filter(Boolean);\n    return flat[0] || '';\n  }\n  return v.toString().trim();\n}\n\n// --- ETAPA 3: Função de limpeza (IDÊNTICA ao Map Existentes) ---\nfunction canonicalizeUrl(raw) {\n  try {\n    let u = raw.toString();\n    u = u.split('?')[0]; // Remove query params\n    u = u.split('#')[0]; // Remove hash\n    if (u.endsWith('/amp')) u = u.slice(0, -4);\n    let p = u.replace(/\\/+$/,''); // Remove / no final\n    return p === '' ? '/' : p;\n  } catch { return ''; }\n}\n\n// --- ETAPA 4: Processar ---\nconst apenasNovas = [];\nconst seenInThisBatch = new Set(); \n\nfor (let i = 0; i < items.length; i++) {\n  const item = items[i].json;\n\n  const titulo = normToString(item.titulo);\n  let link = normToString(item.link);\n  const dataPub = normToString(item.data_publicacao);\n  const nomePortal = normToString(item.nome);\n  const baseUrl = normToString(item.url);\n\n  if (!titulo || !link || !nomePortal || !baseUrl) {\n    continue;\n  }\n\n  // --- CORREÇÃO DE LINK RELATIVO (SIMPLIFICADO) ---\n  if (link && !link.startsWith('http')) {\n    try {\n      const hostMatch = baseUrl.match(/^(https?:\\/\\/[^\\/]+)/);\n      if (!hostMatch) throw new Error('Não foi possível extrair o host da baseUrl');\n      const host = hostMatch[1];\n\n      if (link.startsWith('/')) {\n        link = host + link;\n      } else {\n        const baseComBarra = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';\n        link = baseComBarra + link;\n      }\n    } catch (error) {\n      continue; \n    }\n  }\n\n  // --- CANONICALIZAÇÃO (SIMPLIFICADA) ---\n  const linkFinal = canonicalizeUrl(link); \n  if (!linkFinal) {\n    continue;\n  }\n\n  // --- FILTRO DE DUPLICATA LITERAL ---\n  const tituloTrimmed = titulo.trim();\n  if (knownTitles.has(tituloTrimmed) || knownLinks.has(linkFinal) || seenInThisBatch.has(linkFinal)) {\n    continue;\n  }\n\n  // --- SUCESSO! ---\n  apenasNovas.push({\n    json: {\n      titulo: tituloTrimmed,\n      link: linkFinal,\n      nome: nomePortal,\n      data_publicacao: dataPub\n    }\n  });\n  seenInThisBatch.add(linkFinal);\n}\n\nreturn apenasNovas;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3696,
+        240
+      ],
+      "id": "07e0024d-eafe-4291-8519-dfe52ebf81c8",
+      "name": "Filtra Novas",
+      "alwaysOutputData": false,
+      "retryOnFail": false,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "jsCode": "// items = lista de notícias inéditas vindas de \"Filtra Novas\"\n// Cada item deve ter pelo menos { titulo, link }\n// Objetivo: gerar pares (A,B) para comparação de similaridade,\n// com índices indexA / indexB.\n\nfunction safe(v) {\n  if (v === undefined || v === null) return '';\n  if (Array.isArray(v)) {\n    const flat = v\n      .map(x => (x ?? '').toString().trim())\n      .filter(Boolean);\n    return flat[0] || '';\n  }\n  return v.toString().trim();\n}\n\nconst pares = [];\n\nfor (let i = 0; i < items.length; i++) {\n  for (let j = i + 1; j < items.length; j++) {\n    const a = items[i].json;\n    const b = items[j].json;\n\n    pares.push({\n      json: {\n        indexA: i,\n        indexB: j,\n\n        // dados principais da Notícia A\n        tituloA: safe(a.titulo),\n        linkA: safe(a.link),\n\n        // dados principais da Notícia B\n        tituloB: safe(b.titulo),\n        linkB: safe(b.link),\n      },\n    });\n  }\n}\n\n// Se houver 0 ou 1 notícia nova, não há pares pra comparar.\n// Retornamos [] e o próximo nó entende que não tem nada pra deduplicar.\nreturn pares.length > 0 ? pares : [];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3984,
+        240
+      ],
+      "id": "5888a9d0-25d5-40af-aec9-84ae66bbc2e8",
+      "name": "Preparar Similaridade",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Pega todas as notícias vindas de \"Filtra Novas\"\nconst novasNoticias = $items('Filtra Novas', 0).map(i => i.json);\n\n// Se só tem 0 ou 1 notícia, não tem como ter duplicata de assunto\nif (novasNoticias.length <= 1) {\n  return novasNoticias.map(n => ({ json: n }));\n}\n\n// \"items\" aqui são os resultados de \"Checar Similaridade Local\"\nconst descartar = new Set();\n\nfor (const pair of items) {\n  const { indexA, indexB, mesmoAssunto, preferir } = pair.json;\n\n  if (\n    indexA === undefined ||\n    indexB === undefined\n  ) {\n    continue;\n  }\n\n  const igual =\n    mesmoAssunto === 'SIM' ||\n    mesmoAssunto === 'sim' ||\n    mesmoAssunto === true;\n\n  if (igual) {\n    let keep = preferir;\n    if (keep !== 'A' && keep !== 'B') {\n      keep = 'A'; // fallback seguro\n    }\n\n    if (keep === 'A') {\n      // mantém A, descarta B\n      descartar.add(indexB);\n    } else {\n      // mantém B, descarta A\n      descartar.add(indexA);\n    }\n  }\n}\n\n// Monta a lista final, removendo notícias marcadas pra descartar\nconst finais = [];\nfor (let i = 0; i < novasNoticias.length; i++) {\n  if (!descartar.has(i)) {\n    finais.push({\n      json: novasNoticias[i],\n    });\n  }\n}\n\nreturn finais;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4656,
+        240
+      ],
+      "id": "4d24b7a0-468a-4de0-8f73-8a0f6e32dbfe",
+      "name": "Filtra Muito Parecidas"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "ID_DA_SUA_PLANILHA",
+          "mode": "list",
+          "cachedResultName": "Memória - Notícias Enviadas",
+          "cachedResultUrl": 
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 617741087,
+          "mode": "list",
+          "cachedResultName": "teste",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1yBFStzSc9SQJi23zJrwFdJuxEpXIugiI7KqxQgETizc/edit#gid=617741087"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "link": "=  {{ $json.link }}",
+            "titulo": "={{ $json.titulo }}",
+            "nome": "={{ $json.nome }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "titulo",
+              "displayName": "titulo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "nome",
+              "displayName": "nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "useAppend": true
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        5200,
+        240
+      ],
+      "id": "f0faef90-b376-4c98-a786-6b16eafa2401",
+      "name": "Registra Notícia Nova",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "J7wenUnshzSAThCd",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "ID_DA_SUA_PLANILHA",
+          "mode": "list",
+          "cachedResultName": "Memória - Notícias Enviadas",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 617741087,
+          "mode": "list",
+          "cachedResultName": "teste",
+          "cachedResultUrl": ""
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "detectAutomatically"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        608,
+        -304
+      ],
+      "id": "084999df-278b-458d-9e6b-ea005a360634",
+      "name": "Sheet Existente",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "J7wenUnshzSAThCd",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Não importa quantos itens venham do gatilho,\n// daqui pra frente só segue UM item fixo.\n// Isso garante que o Google Sheets será lido uma única vez.\nreturn [\n  {\n    json: {\n      trigger: true,\n    },\n  },\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        -304
+      ],
+      "id": "22bf3d97-33af-4770-9a72-c2866691be2c",
+      "name": "Only First Item"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este nó elimina a necessidade de IA paga.\n// Entrada: pares { indexA, indexB, tituloA, tituloB, linkA, linkB }\n// Saída: [{ indexA, indexB, mesmoAssunto: \"SIM\"/\"NAO\", preferir: \"A\"/\"B\" }]\n\n// Helpers\n\nfunction normalizeText(str) {\n  if (!str) return '';\n  return str\n    .toString()\n    .toLowerCase()\n    .normalize('NFD')                // separa acentos\n    .replace(/[\\u0300-\\u036f]/g, '') // remove acentos\n    .replace(/[^a-z0-9\\s]/g, ' ')    // remove pontuação/símbolos\n    .replace(/\\s+/g, ' ')            // colapsa espaços\n    .trim();\n}\n\n// quebra em palavras relevantes e tira palavrinhas comuns\nfunction tokenize(str) {\n  const stopwords = new Set([\n    'de','da','do','das','dos','para','por','pra',\n    'e','a','o','os','as','em','no','na','nos','nas',\n    'com','sobre','que','um','uma','ao','à','às','aos',\n    'se','sua','seu','suas','seus'\n  ]);\n\n  return normalizeText(str)\n    .split(' ')\n    .filter(w => w.length >= 3 && !stopwords.has(w));\n}\n\n// Jaccard: interseção / união de conjuntos de palavras\nfunction jaccardSimilarity(textA, textB) {\n  const tokensA = new Set(tokenize(textA));\n  const tokensB = new Set(tokenize(textB));\n\n  if (tokensA.size === 0 || tokensB.size === 0) return 0;\n\n  let inter = 0;\n  for (const t of tokensA) {\n    if (tokensB.has(t)) inter++;\n  }\n\n  const union = tokensA.size + tokensB.size - inter;\n  return inter / union;\n}\n\n// Distância de edição (Levenshtein)\nfunction levenshteinDistance(a, b) {\n  const s = normalizeText(a);\n  const t = normalizeText(b);\n\n  const m = s.length;\n  const n = t.length;\n\n  if (!m && !n) return 0;\n  if (!m) return n;\n  if (!n) return m;\n\n  const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));\n  for (let i = 0; i <= m; i++) dp[i][0] = i;\n  for (let j = 0; j <= n; j++) dp[0][j] = j;\n\n  for (let i = 1; i <= m; i++) {\n    for (let j = 1; j <= n; j++) {\n      const cost = s[i - 1] === t[j - 1] ? 0 : 1;\n      dp[i][j] = Math.min(\n        dp[i - 1][j] + 1,      // remoção\n        dp[i][j - 1] + 1,      // inserção\n        dp[i - 1][j - 1] + cost// substituição\n      );\n    }\n  }\n\n  return dp[m][n];\n}\n\n// similaridade Levenshtein normalizada (0 a 1)\nfunction levenshteinSimilarity(a, b) {\n  const s = normalizeText(a);\n  const t = normalizeText(b);\n  if (!s && !t) return 1;\n  const dist = levenshteinDistance(s, t);\n  const longest = Math.max(s.length, t.length) || 1;\n  return 1 - dist / longest;\n}\n\n// Qual título guardar?\n// Critério simples: título mais longo tende a ser mais específico.\n// Se empatar, escolhe A.\nfunction escolherPreferidaPorTitulo(tituloA, tituloB) {\n  const lenA = (tituloA || '').toString().length;\n  const lenB = (tituloB || '').toString().length;\n  if (lenB > lenA) {\n    return 'B';\n  }\n  return 'A';\n}\n\n// Lógica\nconst resultados = [];\n\nfor (const par of items) {\n  const {\n    indexA,\n    indexB,\n    tituloA,\n    tituloB,\n    linkA,\n    linkB,\n  } = par.json;\n\n  // texto base = só título, já que não temos resumo/fonte\n  const textoA = tituloA || '';\n  const textoB = tituloB || '';\n\n  // mede semelhança\n  const jac = jaccardSimilarity(textoA, textoB);    // 0 a 1\n  const lev = levenshteinSimilarity(textoA, textoB); // 0 a 1\n\n  // Heurística de \"mesmo assunto\"\n  // Se os títulos compartilham muitas palavras importantes\n  // OU são quase iguais com leves diferenças:\n  const mesmoAssuntoBool =\n    jac >= 0.5 ||\n    lev >= 0.7 ||\n    (jac >= 0.4 && lev >= 0.6);\n\n  if (mesmoAssuntoBool) {\n    const preferir = escolherPreferidaPorTitulo(tituloA, tituloB);\n\n    resultados.push({\n      json: {\n        indexA,\n        indexB,\n        mesmoAssunto: 'SIM',\n        preferir, // \"A\" ou \"B\"\n        // debug opcional:\n        jacard: jac,\n        levenshtein: lev,\n        tituloA,\n        tituloB,\n        linkA,\n        linkB,\n      },\n    });\n  } else {\n    resultados.push({\n      json: {\n        indexA,\n        indexB,\n        mesmoAssunto: 'NAO',\n        preferir: 'A',\n        jacard: jac,\n        levenshtein: lev,\n        tituloA,\n        tituloB,\n        linkA,\n        linkB,\n      },\n    });\n  }\n}\n\nreturn resultados;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4320,
+        240
+      ],
+      "id": "8dc9edbc-ceed-4075-b4aa-11844d80463c",
+      "name": "Checar Similaridade Local"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 'items' (entrada) é a saída do HTTP Request (Node 4). Ex: [{ json: { data: \"<html>...\" } }]\n// 'origItems' é a saída do 'Code in JavaScript' (Node 2). Ex: [{ json: { nome: \"...\", url: \"...\" } }, ...]\nconst origItems = $items('Code in JavaScript'); \n\n// Mapeia a saída do HTTP Request (items)\nreturn items.map((item, index) => {\n  // Pega o dado original correspondente (nome, url)\n  const original = origItems[index]?.json || {};\n  // Pega o html baixado\n  const html = item.json.data ?? item.json.body ?? null;\n\n  return {\n    json: {\n      nome: original.nome, // <-- Passa o NOME adiante\n      url: original.url,   // <-- Passa a URL BASE adiante\n      html: html           // <-- Passa o HTML adiante\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1072,
+        0
+      ],
+      "id": "98a95fef-b7d6-4252-beb0-77cd36e921af",
+      "name": "Code in JavaScript1",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "fromEmail": "seu-email@empresa.com.br",
+        "toEmail": "equipe@empresa.com.br, gestor@empresa.com.br
+        "subject": "=Insights da Semana - publicidade, Mídia e Varejo",
+        "html": "={{ $json.html_body }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        6048,
+        224
+      ],
+      "id": "778b2a5c-e731-4d1b-b792-0bcf374472fb",
+      "name": "Send email",
+      "webhookId": "017f0721-d856-489b-94af-53079b500dc2",
+      "credentials": {
+        "smtp": {
+          "id": "gtIC0fXX6QqBXWQr",
+          "name": "SMTP account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "/*\n * NÓ: Montar HTML do E-mail (VERSÃO V22 - LOGO ACIMA DO TÍTULO)\n * OBJETIVO: Ler a estrutura { json: { titulo, link, nome } }\n * E enviar \"stop\": \"true\" ou \"stop\": \"false\" (strings)\n*/\n\n// O formato é: [ { json: { titulo: \"...\", link: \"...\", nome: \"...\" } }, ... ]\nconst noticiasParaEmail = items.map(item => ({\n  titulo: item.json.titulo,\n  link: item.json.link,\n  nome: item.json.nome,\n  data_publicacao: item.json.data_publicacao || ''\n}));\n\n// Se não houver notícias (filtro barrou tudo), para o fluxo.\nif (noticiasParaEmail.length === 0) {\n  // Retorna a string \"true\"\n  return [{ json: { stop: \"true\" } }];\n}\n\n// Início do HTML\nlet htmlBody = `\n<html>\n  <head>\n    <style>\n      body { font-family: Arial, sans-serif; line-height: 1.6; }\n      .container { width: 90%; margin: auto; padding: 20px; }\n      .noticia { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee; }\n      \n      /* --- CSS NOVO PARA O LOGO EMPILHADO --- */\n      .logo-container {\n        margin-bottom: 15px; /* Espaço entre o logo e o título */\n        /* text-align: center; <--- Se quiser o logo no meio, descomente esta linha */\n      }\n      img.logo {\n        max-height: 80px; /* <-- Altura máxima (aumentei um pouco) */\n        width: auto;      /* Mantém a proporção */\n        display: block;\n      }\n      h1 { \n        margin: 0 0 10px 0;\n      }\n      /* ----------------------------- */\n\n      h2 { margin: 0 0 5px 0; }\n      h2 a { color: #0034FF; text-decoration: none; font-size: 1.2rem; }\n      .meta { font-size: 0.9rem; color: #555; }\n      .footer-text { margin-top: 30px; font-size: 0.8rem; color: #333333; text-align: left; border-top: 1px solid #eee; padding-top: 20px; font-style: italic; }\n    </style>\n  </head>\n  <body>\n    <div class=\"container\">\n      \n      <div class=\"logo-container\">\n        <img src=\"link do logo aqui" alt=\"Logo\" class=\"logo\">\n      </div>\n\n      <h1>Insights da Semana - Publicidade, Mídia e Varejo</h1>\n      \n      <p>As principais notícias da semana extraídas dos portais de destaque do mercado publicitário e do varejo:</p>\n      <hr>\n`;\n\n// Adiciona cada notícia ao HTML\nfor (const noticia of noticiasParaEmail) {\n  htmlBody += `\n    <div class=\"noticia\">\n      <h2><a href=\"${noticia.link}\">${noticia.titulo}</a></h2>\n      <span class=\"meta\">\n        <strong>Portal:</strong> ${noticia.nome}\n        ${noticia.data_publicacao ? ` | <strong>Publicado:</strong> ${noticia.data_publicacao}` : ''}\n      </span>\n    </div>\n  `;\n}\n// --- Fim do loop ---\n\n// -------------------------------------------------------------------\n// RODAPÉ\n// -------------------------------------------------------------------\n\nhtmlBody += `\n  <div class=\"footer-text\">\n    <p>\n      Projeto desenvolvido para fins de estudo, com informações de portais de notícias especializada \n    </p>\n  </div>\n`;\n\n// Fecha o HTML\nhtmlBody += `\n    </div>\n  </body>\n</html>\n`;\n\n// Retorna a string \"false\"\nreturn [{\n  json: {\n    html_body: htmlBody,\n    stop: \"false\" \n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5456,
+        240
+      ],
+      "id": "5fb287f0-00c2-464c-b8a6-8f3380ce3373",
+      "name": "Montar HTML do E-mail"
+    },
+    {
+      "parameters": {
+        "amount": 1.1
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        4928,
+        240
+      ],
+      "id": "201f886c-f1b9-4ca5-9ba7-d9709cfc6a39",
+      "name": "Wait",
+      "webhookId": "b87d6103-3bb9-418d-890e-0d8ea39b2565"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4f2f9c90-2ba1-46cf-91eb-e204866779fd",
+              "leftValue": "={{$json.stop}}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        5712,
+        240
+      ],
+      "id": "dd6a7113-f4fd-4564-b4fc-f59005bde925",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este código roda UMA VEZ para TODOS os itens.\n\n// 1. Pega o item original (com nome e url) que saiu do nó 'Switch'\n//    Esta é a sintaxe correta v8: $(\"Switch\").first().json\n//    Isso pega o PRIMEIRO (e único) ITEM DE SAÍDA do nó 'Switch'\n//    que corresponde a esta execução.\nconst original = $(\"Switch\").first().json;\n\nconst outputItems = [];\n\n// 2. 'items' é o array de entrada DESTE nó (com todos os 'titulo'/'link')\n//    Vamos iterar por ele.\nfor (const item of items) {\n  const noticia = item.json;\n  \n  // 3. Combina os dados\n  const output = {\n    titulo: noticia.titulo,\n    link: noticia.link,\n    nome: original.nome, // <-- AQUI ele adiciona o 'nome' do 'Switch'\n    url: original.url    // <-- AQUI ele adiciona a 'url' do 'Switch'\n  };\n  \n  // 4. Adiciona o item combinado à lista de saída\n  outputItems.push({ json: output });\n}\n\n// 5. Retorna a lista completa\nreturn outputItems;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        -352
+      ],
+      "id": "2b53f669-5ef2-4af2-9b95-688313536609",
+      "name": "Code Meio e Mensagem"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este código roda UMA VEZ para TODOS os itens.\n\n// 1. Pega o item original (com nome e url) que saiu do nó 'Switch'\n//    Esta é a sintaxe correta v8: $(\"Switch\").first().json\n//    Isso pega o PRIMEIRO (e único) ITEM DE SAÍDA do nó 'Switch'\n//    que corresponde a esta execução.\nconst original = $(\"Switch\").first().json;\n\nconst outputItems = [];\n\n// 2. 'items' é o array de entrada DESTE nó (com todos os 'titulo'/'link')\n//    Vamos iterar por ele.\nfor (const item of items) {\n  const noticia = item.json;\n  \n  // 3. Combina os dados\n  const output = {\n    titulo: noticia.titulo,\n    link: noticia.link,\n    nome: original.nome, // <-- AQUI ele adiciona o 'nome' do 'Switch'\n    url: original.url    // <-- AQUI ele adiciona a 'url' do 'Switch'\n  };\n  \n  // 4. Adiciona o item combinado à lista de saída\n  outputItems.push({ json: output });\n}\n\n// 5. Retorna a lista completa\nreturn outputItems;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2048,
+        -208
+      ],
+      "id": "0bb2fcd4-3950-401b-b152-ea00b7f742d6",
+      "name": "Code Propmark"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este código roda UMA VEZ para TODOS os itens.\n\n// 1. Pega o item original (com nome e url) que saiu do nó 'Switch'\n//    Esta é a sintaxe correta v8: $(\"Switch\").first().json\n//    Isso pega o PRIMEIRO (e único) ITEM DE SAÍDA do nó 'Switch'\n//    que corresponde a esta execução.\nconst original = $(\"Switch\").first().json;\n\nconst outputItems = [];\n\n// 2. 'items' é o array de entrada DESTE nó (com todos os 'titulo'/'link')\n//    Vamos iterar por ele.\nfor (const item of items) {\n  const noticia = item.json;\n  \n  // 3. Combina os dados\n  const output = {\n    titulo: noticia.titulo,\n    link: noticia.link,\n    nome: original.nome, // <-- AQUI ele adiciona o 'nome' do 'Switch'\n    url: original.url    // <-- AQUI ele adiciona a 'url' do 'Switch'\n  };\n  \n  // 4. Adiciona o item combinado à lista de saída\n  outputItems.push({ json: output });\n}\n\n// 5. Retorna a lista completa\nreturn outputItems;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2032,
+        -64
+      ],
+      "id": "de2fd5e8-c683-43dd-b981-a20e46ec8eed",
+      "name": "Code Adnews"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este código roda UMA VEZ para TODOS os itens.\n\n// 1. Pega o item original (com nome e url) que saiu do nó 'Switch'\n//    Esta é a sintaxe correta v8: $(\"Switch\").first().json\n//    Isso pega o PRIMEIRO (e único) ITEM DE SAÍDA do nó 'Switch'\n//    que corresponde a esta execução.\nconst original = $(\"Switch\").first().json;\n\nconst outputItems = [];\n\n// 2. 'items' é o array de entrada DESTE nó (com todos os 'titulo'/'link')\n//    Vamos iterar por ele.\nfor (const item of items) {\n  const noticia = item.json;\n  \n  // 3. Combina os dados\n  const output = {\n    titulo: noticia.titulo,\n    link: noticia.link,\n    nome: original.nome, // <-- AQUI ele adiciona o 'nome' do 'Switch'\n    url: original.url    // <-- AQUI ele adiciona a 'url' do 'Switch'\n  };\n  \n  // 4. Adiciona o item combinado à lista de saída\n  outputItems.push({ json: output });\n}\n\n// 5. Retorna a lista completa\nreturn outputItems;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2048,
+        80
+      ],
+      "id": "f726da28-76c1-4a3b-a75b-c5153e8d57ca",
+      "name": "Code Marcas pelo Mundo"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este código roda UMA VEZ para TODOS os itens.\n\n// 1. Pega o item original (com nome e url) que saiu do nó 'Switch'\n//    Esta é a sintaxe correta v8: $(\"Switch\").first().json\n//    Isso pega o PRIMEIRO (e único) ITEM DE SAÍDA do nó 'Switch'\n//    que corresponde a esta execução.\nconst original = $(\"Switch\").first().json;\n\nconst outputItems = [];\n\n// 2. 'items' é o array de entrada DESTE nó (com todos os 'titulo'/'link')\n//    Vamos iterar por ele.\nfor (const item of items) {\n  const noticia = item.json;\n  \n  // 3. Combina os dados\n  const output = {\n    titulo: noticia.titulo,\n    link: noticia.link,\n    nome: original.nome, // <-- AQUI ele adiciona o 'nome' do 'Switch'\n    url: original.url    // <-- AQUI ele adiciona a 'url' do 'Switch'\n  };\n  \n  // 4. Adiciona o item combinado à lista de saída\n  outputItems.push({ json: output });\n}\n\n// 5. Retorna a lista completa\nreturn outputItems;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2032,
+        224
+      ],
+      "id": "2b63e077-013b-426d-b85e-d9dde60aa23b",
+      "name": "Code Mercado e Consumo"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este código roda UMA VEZ para TODOS os itens.\n\n// 1. Pega o item original (com nome e url) que saiu do nó 'Switch'\n//    Esta é a sintaxe correta v8: $(\"Switch\").first().json\n//    Isso pega o PRIMEIRO (e único) ITEM DE SAÍDA do nó 'Switch'\n//    que corresponde a esta execução.\nconst original = $(\"Switch\").first().json;\n\nconst outputItems = [];\n\n// 2. 'items' é o array de entrada DESTE nó (com todos os 'titulo'/'link')\n//    Vamos iterar por ele.\nfor (const item of items) {\n  const noticia = item.json;\n  \n  // 3. Combina os dados\n  const output = {\n    titulo: noticia.titulo,\n    link: noticia.link,\n    nome: original.nome, // <-- AQUI ele adiciona o 'nome' do 'Switch'\n    url: original.url    // <-- AQUI ele adiciona a 'url' do 'Switch'\n  };\n  \n  // 4. Adiciona o item combinado à lista de saída\n  outputItems.push({ json: output });\n}\n\n// 5. Retorna a lista completa\nreturn outputItems;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2016,
+        368
+      ],
+      "id": "1171e196-74ab-4328-b420-0cecb667da24",
+      "name": "Code Giro News"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este código roda UMA VEZ para TODOS os itens.\n\n// 1. Pega o item original (com nome e url) que saiu do nó 'Switch'\n//    Esta é a sintaxe correta v8: $(\"Switch\").first().json\n//    Isso pega o PRIMEIRO (e único) ITEM DE SAÍDA do nó 'Switch'\n//    que corresponde a esta execução.\nconst original = $(\"Switch\").first().json;\n\nconst outputItems = [];\n\n// 2. 'items' é o array de entrada DESTE nó (com todos os 'titulo'/'link')\n//    Vamos iterar por ele.\nfor (const item of items) {\n  const noticia = item.json;\n  \n  // 3. Combina os dados\n  const output = {\n    titulo: noticia.titulo,\n    link: noticia.link,\n    nome: original.nome, // <-- AQUI ele adiciona o 'nome' do 'Switch'\n    url: original.url    // <-- AQUI ele adiciona a 'url' do 'Switch'\n  };\n  \n  // 4. Adiciona o item combinado à lista de saída\n  outputItems.push({ json: output });\n}\n\n// 5. Retorna a lista completa\nreturn outputItems;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2016,
+        528
+      ],
+      "id": "647bcf76-91e2-45e8-8355-06c217dde35d",
+      "name": "Code Nosso Meio"
+    },
+    {
+      "parameters": {
+        "numberInputs": 8
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        3376,
+        144
+      ],
+      "id": "1d0cc999-4bd9-4302-9b5a-05be3582ffa8",
+      "name": "Ponto de Encontro 1",
+      "executeOnce": false
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Only First Item",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Extract Meio e Mensagem",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract Propmark",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [],
+        [
+          {
+            "node": "Extract Marcas pelo mundo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract Mercado e Consumo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract Giro News",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract Nosso Meio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Extract Nosso Meio": {
+      "main": [
+        [
+          {
+            "node": "Code Nosso Meio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Giro News": {
+      "main": [
+        [
+          {
+            "node": "Code Giro News",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Mercado e Consumo": {
+      "main": [
+        [
+          {
+            "node": "Code Mercado e Consumo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Marcas pelo mundo": {
+      "main": [
+        [
+          {
+            "node": "Code Marcas pelo Mundo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Adnews": {
+      "main": [
+        [
+          {
+            "node": "Code Adnews",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Propmark": {
+      "main": [
+        [
+          {
+            "node": "Code Propmark",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Meio e Mensagem": {
+      "main": [
+        [
+          {
+            "node": "Code Meio e Mensagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filtra Novas": {
+      "main": [
+        [
+          {
+            "node": "Preparar Similaridade",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar Similaridade": {
+      "main": [
+        [
+          {
+            "node": "Checar Similaridade Local",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filtra Muito Parecidas": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sheet Existente": {
+      "main": [
+        [
+          {
+            "node": "Map Existentes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Only First Item": {
+      "main": [
+        [
+          {
+            "node": "Sheet Existente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Checar Similaridade Local": {
+      "main": [
+        [
+          {
+            "node": "Filtra Muito Parecidas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Registra Notícia Nova": {
+      "main": [
+        [
+          {
+            "node": "Montar HTML do E-mail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Montar HTML do E-mail": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Registra Notícia Nova",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Send email",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Code Meio e Mensagem": {
+      "main": [
+        [
+          {
+            "node": "Ponto de Encontro 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code Propmark": {
+      "main": [
+        [
+          {
+            "node": "Ponto de Encontro 1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Code Adnews": {
+      "main": [
+        []
+      ]
+    },
+    "Code Marcas pelo Mundo": {
+      "main": [
+        [
+          {
+            "node": "Ponto de Encontro 1",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Code Mercado e Consumo": {
+      "main": [
+        [
+          {
+            "node": "Ponto de Encontro 1",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "Code Giro News": {
+      "main": [
+        [
+          {
+            "node": "Ponto de Encontro 1",
+            "type": "main",
+            "index": 5
+          }
+        ]
+      ]
+    },
+    "Code Nosso Meio": {
+      "main": [
+        [
+          {
+            "node": "Ponto de Encontro 1",
+            "type": "main",
+            "index": 6
+          }
+        ]
+      ]
+    },
+    "Send email": {
+      "main": [
+        []
+      ]
+    },
+    "Ponto de Encontro 1": {
+      "main": [
+        [
+          {
+            "node": "Filtra Novas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b62877b5-7709-4836-bce5-af0c545747fa",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    
+  },
+  "id": "nCsumiJR1lOOA4is",
+  "tags": []
+}
